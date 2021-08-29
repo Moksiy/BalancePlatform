@@ -1,4 +1,5 @@
 ﻿using BalancePlatform.Backend.Common.Base.Extensions;
+using BalancePlatform.Backend.Common.Base.Helpers;
 using BalancePlatform.Backend.Domain.Entities.Auth;
 using BalancePlatform.Backend.Domain.Ninject;
 using BalancePlatform.Backend.Domain.Services.Interfaces.BalancePlatformInterfaces;
@@ -108,5 +109,15 @@ namespace BalancePlatform.Backend.WebApi.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, e);
             }
         }
+
+        #region ВРЕМЕННО
+        [HttpGet("CreateHash")]
+        public string GetHash(string password)
+        {
+            var salt = "bDz<!%#u8&";//Md5Helper.CalculateMd5Hash(Guid.NewGuid().ToString()).Substring(0, 8);    -- todo Временно
+            var passwordHash = Md5Helper.CalculateMd5Hash(password + salt);//Md5Helper.CalculateMd5Hash(salt + "/" + password + "\\" + salt);
+            return passwordHash;
+        }
+        #endregion
     }
 }

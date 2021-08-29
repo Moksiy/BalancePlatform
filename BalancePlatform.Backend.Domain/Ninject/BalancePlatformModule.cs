@@ -59,7 +59,7 @@ namespace BalancePlatform.Backend.Domain.Ninject
             Bind<BalancePlatformOptions>().ToSelf().InTransientScope()
                 .WithConstructorArgument("options", balancePlatformOptions);
 
-            Bind<BalancePlatformOptions>().ToSelf().InTransientScope()
+            Bind<BalancePlatformContext>().ToSelf().InTransientScope()
                 .WithConstructorArgument("options", matchingOptions);
         }
 
