@@ -14,9 +14,5 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         /// </summary>
         [MaxLength(256)]
         public string Descr { get; set; }
-        /// <summary>
-        /// Общий счет
-        /// </summary>
-        public int TotalScore { get; set; }
     }
 }

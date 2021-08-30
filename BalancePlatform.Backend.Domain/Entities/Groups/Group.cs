@@ -30,13 +30,6 @@ namespace BalancePlatform.Backend.Domain.Entities.Groups
         [Display(Name = "Описание")]
         [DataMember]
         public string Descr { get; set; }
-        /// <summary>
-        /// Общий счет
-        /// </summary>
-        [Display(Name = "Общий счет")]
-        [DataMember]
-        public int TotalScore { get; set; }
-
 
     }
 }
