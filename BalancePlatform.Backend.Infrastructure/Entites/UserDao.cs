@@ -49,5 +49,17 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         /// Активен?
         /// </summary>
         public bool IsActive { get; set; }
+        /// <summary>
+        /// Идентификатор группы
+        /// </summary>
+        public int? GroupId { get; set; }
+        /// <summary>
+        /// Группа
+        /// </summary>
+        public GroupDao Group { get; set; }
+        /// <summary>
+        /// Баллы
+        /// </summary>
+        public int? Score { get; set; }
     }
 }
