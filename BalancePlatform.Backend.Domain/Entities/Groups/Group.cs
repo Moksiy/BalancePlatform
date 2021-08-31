@@ -6,7 +6,7 @@ using BalancePlatform.Backend.Common.Base.Entities;
 namespace BalancePlatform.Backend.Domain.Entities.Groups
 {
     /// <summary>
-    /// Роль пользователь
+    /// Группы
     /// </summary>
     [DataContract]
     [Serializable]

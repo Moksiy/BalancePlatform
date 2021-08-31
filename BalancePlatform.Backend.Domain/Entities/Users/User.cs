@@ -54,11 +54,6 @@ namespace BalancePlatform.Backend.Domain.Entities.Users
         [Display(Name = "Id группы")]
         [DataMember]
         public int? GroupId { get; set; }
-        /// <summary>
-        /// Ссчет
-        /// </summary>
-        [Display(Name = "Счет")]
-        [DataMember]
-        public int Score { get; set; }
+        
     }
 }

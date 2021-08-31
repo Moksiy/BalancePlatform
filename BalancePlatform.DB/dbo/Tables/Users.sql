@@ -8,7 +8,6 @@
     [RoleId]       INT            NOT NULL,
     [IsActive]     BIT            NOT NULL,
     [GroupId]      INT            NOT NULL,
-    [Score]        INT            NOT NULL,
     --
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_Roles] FOREIGN KEY ([RoleId]) REFERENCES [dbo].[Roles] ([Id]),

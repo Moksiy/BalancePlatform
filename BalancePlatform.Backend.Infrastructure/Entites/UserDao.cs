@@ -57,9 +57,6 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         /// Группа
         /// </summary>
         public GroupDao Group { get; set; }
-        /// <summary>
-        /// Баллы
-        /// </summary>
-        public int? Score { get; set; }
+        
     }
 }
