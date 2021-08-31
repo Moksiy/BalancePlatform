@@ -15,7 +15,6 @@ namespace BalancePlatform.Backend.Domain.Mappings
                 .ForMember(p => p.RoleId, a => a.MapFrom(p => p.RoleId))
                 .ForMember(p => p.IsActive, a => a.MapFrom(p => p.IsActive))
                 .ForMember(p => p.GroupId, a => a.MapFrom(p => p.GroupId))
-                .ForMember(p => p.Score, a => a.MapFrom(p => p.Score))
                 ;
         }
     }
