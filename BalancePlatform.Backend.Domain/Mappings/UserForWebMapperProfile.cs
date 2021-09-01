@@ -12,10 +12,10 @@ namespace BalancePlatform.Backend.Domain.Mappings
     {
         public UserForWebMapperProfile()
         {
-            CreateMap<UserDao, UserForWeb>()
+            /*CreateMap<UserDao, UserForWeb>()
                 .ForMember(p => p.Id, a => a.MapFrom(p => p.Id))
                 .ForMember(p => p.Name, a => a.MapFrom(p => p.UserName))
-                ;
+                ;*/
         }
     }
 }

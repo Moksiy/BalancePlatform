@@ -22,6 +22,7 @@ namespace BalancePlatform.Backend.Domain.Entities.Auth
         /// Пароль
         /// </summary>
         [Display(Name = "Пароль")]
+        [DataMember(IsRequired = true)]
         public string Password { get; set; }
     }
 }

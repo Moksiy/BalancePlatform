@@ -47,13 +47,6 @@ namespace BalancePlatform.Backend.Domain.Entities.Users
         /// </summary>
         [Display(Name = "Активен?")]
         [DataMember]
-        public bool IsActive { get; set; }
-        /// <summary>
-        /// Идентификатор группы
-        /// </summary>
-        [Display(Name = "Id группы")]
-        [DataMember]
-        public int? GroupId { get; set; }
-        
+        public bool IsActive { get; set; }        
     }
 }

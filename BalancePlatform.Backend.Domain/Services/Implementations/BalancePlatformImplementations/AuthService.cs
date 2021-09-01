@@ -210,9 +210,12 @@ namespace BalancePlatform.Backend.Domain.Services.Implementations.BalancePlatfor
 
                             return new AuthResultModel()
                             {
-                                Id = userDao.Id,
-                                UserName = userDao.UserName,
-                                Role = _mapper.Map<Role>(userDao.Role),
+                                User = new Entities.Users.UserForWeb()
+                                {
+                                    Id = userDao.Id,
+                                    Name = userDao.UserName,
+                                    ImageUrl = ""//TODO: добавить получение url
+                                },
                                 Token = userTokenDao.Token,
                                 ErrorCode = 0,
                                 ErrorText = "Пользователь существует, у него есть пароль и он совпадает с указанным",
@@ -272,9 +275,12 @@ namespace BalancePlatform.Backend.Domain.Services.Implementations.BalancePlatfor
                     {
                         return new AuthResultModel()
                         {
-                            Id = userDao.Id,
-                            UserName = userDao.UserName,
-                            Role = _mapper.Map<Role>(userDao.Role),
+                            User = new Entities.Users.UserForWeb()
+                            {
+                                Id = userDao.Id,
+                                Name = userDao.UserName,
+                                ImageUrl = ""//TODO: добавить получение url
+                            },
                             Token = tokenDao.Token,
                             ErrorCode = 0,
                             ErrorText = string.Empty

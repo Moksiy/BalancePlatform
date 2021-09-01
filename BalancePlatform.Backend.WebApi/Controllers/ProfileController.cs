@@ -16,7 +16,6 @@ namespace BalancePlatform.Backend.WebApi.Controllers
     /// <summary>
     /// OData Web Api контроллер работы с профилями пользователей
     /// </summary>
-    [HttpBearerAuthorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ProfileController : ControllerBase
