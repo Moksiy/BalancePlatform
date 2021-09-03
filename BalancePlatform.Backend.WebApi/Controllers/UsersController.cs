@@ -88,5 +88,23 @@ namespace BalancePlatform.Backend.WebApi.Controllers
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Получить профиль пользователя
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("User")]
+        public UserProfile GetUserProfile(int id)
+        {
+            try
+            {
+                return _userForWebService.GetUserProfile(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

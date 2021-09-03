@@ -105,7 +105,7 @@ namespace BalancePlatform.Backend.Infrastructure.Contexts
             #region CurrencyDao
 
             modelBuilder.Entity<CurrencyDao>()
-                .HasKey(x => x.UserId);
+                .HasNoKey();
 
             #endregion
 
@@ -228,7 +228,7 @@ namespace BalancePlatform.Backend.Infrastructure.Contexts
             #region SpentCurrencyDao
 
             modelBuilder.Entity<SpentCurrencyDao>()
-                .HasKey(p => p.UserId);
+                .HasNoKey();
 
             modelBuilder.Entity<GroupDao>()
                 .HasKey(p => p.Id);

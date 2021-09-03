@@ -25,6 +25,10 @@ namespace BalancePlatform.Backend.Domain.Services.Implementations.BalancePlatfor
 
         private readonly IEntityRepository<UserScoreDao> _scoreRepository;
 
+        private readonly IEntityRepository<CurrencyDao> _currencyRepository;
+
+        private readonly IEntityRepository<SpentCurrencyDao> _spentCurrencyRepository;
+
         private readonly IMapper _mapper;
 
         /// <summary>
@@ -39,6 +43,10 @@ namespace BalancePlatform.Backend.Domain.Services.Implementations.BalancePlatfor
             _userRepository = kernel.Get<IEntityWithIdRepository<UserDao, int>>(new ConstructorArgument("context", _balancePlatformContext));
 
             _scoreRepository = kernel.Get<IEntityRepository<UserScoreDao>>(new ConstructorArgument("context", _balancePlatformContext));
+
+            _currencyRepository = kernel.Get<IEntityRepository<CurrencyDao>>(new ConstructorArgument("context", _balancePlatformContext));
+
+            _spentCurrencyRepository = kernel.Get<IEntityRepository<SpentCurrencyDao>>(new ConstructorArgument("context", _balancePlatformContext));
 
             _mapper = kernel.Get<IMapper>();
         }
@@ -79,6 +87,40 @@ namespace BalancePlatform.Backend.Domain.Services.Implementations.BalancePlatfor
                          };
 
             return result.ToList(); 
+        }
+
+        /// <summary>
+        /// Получить профиль пользователя
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public UserProfile GetUserProfile(int id)
+        {
+            var user = _userRepository.GetById(id);
+
+            var scoreQueryable = _scoreRepository.GetQueryable()
+                .OrderByDescending(x => x.Score)
+                .ToList();
+
+            var currency = _currencyRepository.GetQueryable()
+                .ToList();
+
+            var spentCurrency = _spentCurrencyRepository.GetQueryable()
+                .ToList();
+
+            return new UserProfile()
+            {
+                 Id = user.Id,
+                 City = user.City,
+                 Birthday = user.BirthDate,
+                 Email = user.Email,
+                 ImgUrl = user.ImageUrl,
+                 Phone = user.PhoneNum,
+                 Title = user.UserName,
+                 PlaceOnTop = scoreQueryable.FindIndex(x => x.UserId == user.Id) + 1,
+                 Currency = currency.FirstOrDefault(x => x.UserId == user.Id).Value,
+                 SpentCurrency = spentCurrency.FirstOrDefault(x => x.UserId == user.Id).Value
+        };
         }
     }
 }

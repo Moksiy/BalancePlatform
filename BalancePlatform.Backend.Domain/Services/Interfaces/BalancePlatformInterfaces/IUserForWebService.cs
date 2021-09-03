@@ -24,5 +24,11 @@ namespace BalancePlatform.Backend.Domain.Services.Interfaces.BalancePlatformInte
         /// </summary>
         /// <returns></returns>
         List<UserInfo> GetUserList();
+
+        /// <summary>
+        /// Получить профиль пользователя
+        /// </summary>
+        /// <returns></returns>
+        UserProfile GetUserProfile(int id);
     }
 }
