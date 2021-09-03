@@ -71,6 +71,6 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         /// <summary>
         /// Ид группы
         /// </summary>
-        public int GroupId { get; set; }
+        public int? GroupId { get; set; }
     }
 }

@@ -37,7 +37,7 @@ namespace BalancePlatform.Backend.Domain.Services.Implementations.BalancePlatfor
             _balancePlatformContext = kernel.Get<BalancePlatformContext>();
 
             _shopRepository = kernel.Get<IEntityWithIdRepository<ProductDao, int>>(new ConstructorArgument("context", _balancePlatformContext));
-
+            
             _mapper = kernel.Get<IMapper>();
         }
 
@@ -55,7 +55,7 @@ namespace BalancePlatform.Backend.Domain.Services.Implementations.BalancePlatfor
             catch (Exception)
             {
                 throw;
-            }            
+            }
         }
     }
 }

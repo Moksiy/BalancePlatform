@@ -8,17 +8,6 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
     /// </summary>
     public class BattleDao : EntityWithIdDao<int>
     {
-
-        /// <summary>
-        /// Наименование
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Описание
-        /// </summary>
-        public string Description { get; set; }
-
         /// <summary>
         /// Дата начала
         /// </summary>

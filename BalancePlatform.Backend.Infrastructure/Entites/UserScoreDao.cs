@@ -1,5 +1,4 @@
-﻿
-namespace BalancePlatform.Backend.Infrastructure.Entites
+﻿namespace BalancePlatform.Backend.Infrastructure.Entites
 {
     /// <summary>
     /// Счет пользователя
