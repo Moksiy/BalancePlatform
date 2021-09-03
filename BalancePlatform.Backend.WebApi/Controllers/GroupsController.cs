@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using BalancePlatform.Backend.Domain.Entities.GroupsRatings;
 using BalancePlatform.Backend.Domain.Ninject;
+using BalancePlatform.Backend.Domain.Services.Interfaces.BalancePlatformInterfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Ninject;
@@ -19,7 +21,7 @@ namespace BalancePlatform.Backend.WebApi.Controllers
     {
         private readonly ILogger<GroupsController> _logger;
 
-        //private readonly IShopService _shopService;
+        private readonly IGroupService _groupService;
 
         private readonly IMapper _mapper;
 
@@ -32,11 +34,26 @@ namespace BalancePlatform.Backend.WebApi.Controllers
 
             IKernel kernel = new StandardKernel(new BalancePlatformModule());
 
-            //_shopService = kernel.Get<IShopService>();
+            _groupService = kernel.Get<IGroupService>();
 
             _mapper = kernel.Get<IMapper>();
         }
 
-
+        /// <summary>
+        /// Получаем список пользователей
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("list")]
+        public List<GroupRating> GetGroupsRating()
+        {
+            try
+            {
+                return _groupService.GetGroupsList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

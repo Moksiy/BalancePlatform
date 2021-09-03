@@ -43,5 +43,10 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         /// Ссылка на фото
         /// </summary>
         public string ImageUrl { get; set; }
+
+        /// <summary>
+        /// Битва активна?
+        /// </summary>
+        public bool IsActive { get; set; }
     }
 }

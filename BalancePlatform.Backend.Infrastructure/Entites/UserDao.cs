@@ -67,5 +67,10 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         /// Картинка
         /// </summary>
         public string ImageUrl { get; set; }
+
+        /// <summary>
+        /// Ид группы
+        /// </summary>
+        public int GroupId { get; set; }
     }
 }

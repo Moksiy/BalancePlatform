@@ -1,4 +1,5 @@
 ﻿using BalancePlatform.Backend.Domain.Entities.Groups;
+using BalancePlatform.Backend.Domain.Entities.GroupsRatings;
 using BalancePlatform.Backend.Domain.Services.Interfaces.BaseInterfaces;
 using System;
 using System.Collections.Generic;
@@ -18,5 +19,11 @@ namespace BalancePlatform.Backend.Domain.Services.Interfaces.BalancePlatformInte
         /// </summary>
         /// <returns>Интерфейс для запроса ролей пользователей</returns>
         IQueryable<Group> GetQueryable();
+
+        /// <summary>
+        /// Получить информацию по группам
+        /// </summary>
+        /// <returns></returns>
+        List<GroupRating> GetGroupsList();
     }
 }

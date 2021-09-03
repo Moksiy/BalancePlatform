@@ -25,6 +25,11 @@ namespace BalancePlatform.Backend.Infrastructure.Contexts
             modelBuilder.Entity<UserTokenDao>().ToTable("UserTokens", "dbo");
             modelBuilder.Entity<ProductDao>().ToTable("Products", "dbo");
             modelBuilder.Entity<UserScoreDao>().ToTable("UserScores", "dbo");
+            modelBuilder.Entity<GroupInfoDao>().ToView("GroupsInfo", "dbo");
+            modelBuilder.Entity<GroupDao>().ToTable("Groups", "dbo");
+
+            modelBuilder.Entity<GroupInfoDao>()
+                .HasNoKey();
 
             modelBuilder.Entity<RoleDao>()
                 .Property(p => p.Id)
@@ -32,6 +37,9 @@ namespace BalancePlatform.Backend.Infrastructure.Contexts
 
             modelBuilder.Entity<UserScoreDao>()
                 .HasKey(p => p.UserId);
+
+            modelBuilder.Entity<GroupDao>()
+                .HasKey(p => p.Id);
 
             modelBuilder.Entity<ProductDao>()
                .Property(p => p.Id)
