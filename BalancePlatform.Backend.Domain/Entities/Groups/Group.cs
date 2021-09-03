@@ -29,7 +29,7 @@ namespace BalancePlatform.Backend.Domain.Entities.Groups
         /// </summary>
         [Display(Name = "Описание")]
         [DataMember]
-        public string Descr { get; set; }
+        public string Description { get; set; }
 
     }
 }

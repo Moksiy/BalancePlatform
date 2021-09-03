@@ -13,6 +13,6 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         /// Описание
         /// </summary>
         [MaxLength(256)]
-        public string Descr { get; set; }
+        public string Description { get; set; }
     }
 }

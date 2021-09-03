@@ -15,7 +15,7 @@ namespace BalancePlatform.Backend.Domain.Mappings
             CreateMap<GroupDao, Group>()
                 .ForMember(p => p.Id, a => a.MapFrom(p => p.Id))
                 .ForMember(p => p.Name, a => a.MapFrom(p => p.Name))
-                .ForMember(p => p.Descr, a => a.MapFrom(p => p.Descr))
+                .ForMember(p => p.Description, a => a.MapFrom(p => p.Description))
                 ;
         }
     }
