@@ -29,5 +29,10 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         /// Админ
         /// </summary>
         public UserDao Admin { get; set; }
+
+        /// <summary>
+        /// Картинка
+        /// </summary>
+        public string ImageUrl { get; set; }
     }
 }

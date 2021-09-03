@@ -25,5 +25,6 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         /// Стоимость
         /// </summary>
         public int Cost { get; set; }
+
     }
 }

@@ -27,5 +27,10 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         /// Дата дедлайна цели
         /// </summary>
         public DateTime DateDeadline { get; set; }
+
+        /// <summary>
+        /// Ценность
+        /// </summary>
+        public int Score { get; set; }
     }
 }
