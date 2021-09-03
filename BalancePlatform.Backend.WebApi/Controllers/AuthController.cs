@@ -114,7 +114,7 @@ namespace BalancePlatform.Backend.WebApi.Controllers
         [HttpGet("CreateHash")]
         public string GetHash(string password)
         {
-            var salt = "bDz<!%#u8&";//Md5Helper.CalculateMd5Hash(Guid.NewGuid().ToString()).Substring(0, 8);    -- todo Временно
+            var salt = "bDz<!%#u8&";//Md5Helper.CalculateMd5Hash(Guid.NewGuid().ToString()).Substring(0, 8);
             var passwordHash = Md5Helper.CalculateMd5Hash(password + salt);//Md5Helper.CalculateMd5Hash(salt + "/" + password + "\\" + salt);
             return passwordHash;
         }

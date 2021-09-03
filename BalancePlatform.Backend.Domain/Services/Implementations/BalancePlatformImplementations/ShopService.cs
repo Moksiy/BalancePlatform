@@ -4,7 +4,10 @@ using BalancePlatform.Backend.Domain.Ninject;
 using BalancePlatform.Backend.Domain.Services.Implementations.BaseImplementations;
 using BalancePlatform.Backend.Domain.Services.Interfaces.BalancePlatformInterfaces;
 using BalancePlatform.Backend.Infrastructure.Contexts;
+using BalancePlatform.Backend.Infrastructure.Entites;
+using BalancePlatform.Backend.Infrastructure.Repositories.Interfaces.BaseInterfaces;
 using Ninject;
+using Ninject.Parameters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +23,7 @@ namespace BalancePlatform.Backend.Domain.Services.Implementations.BalancePlatfor
     {
         private readonly BalancePlatformContext _balancePlatformContext;
 
-        //private readonly IEntityWithIdRepository<GroupDao, int> _roleRepository;
+        private readonly IEntityWithIdRepository<ProductDao, int> _shopRepository;
 
         private readonly IMapper _mapper;
 
@@ -33,7 +36,7 @@ namespace BalancePlatform.Backend.Domain.Services.Implementations.BalancePlatfor
 
             _balancePlatformContext = kernel.Get<BalancePlatformContext>();
 
-            //_groupRepository = kernel.Get<IEntityWithIdRepository<GroupDao, int>>(new ConstructorArgument("context", _balancePlatformContext));
+            _shopRepository = kernel.Get<IEntityWithIdRepository<ProductDao, int>>(new ConstructorArgument("context", _balancePlatformContext));
 
             _mapper = kernel.Get<IMapper>();
         }
@@ -44,8 +47,15 @@ namespace BalancePlatform.Backend.Domain.Services.Implementations.BalancePlatfor
         /// <returns>Интерфейс для запроса товаров магазина</returns>
         public IQueryable<Product> GetQueryable()
         {
-            //var roleQueryable = _roleRepository.GetQueryable();
-            return null;//_mapper.ProjectTo<Role>(roleQueryable);
+            try
+            {
+                var shopQueryable = _shopRepository.GetQueryable();
+                return _mapper.ProjectTo<Product>(shopQueryable);
+            }
+            catch (Exception)
+            {
+                throw;
+            }            
         }
     }
 }

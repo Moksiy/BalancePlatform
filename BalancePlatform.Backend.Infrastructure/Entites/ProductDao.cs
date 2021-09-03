@@ -12,6 +12,11 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
     public class ProductDao : EntityWithIdDao<int>
     {
         /// <summary>
+        /// Ссылка на фото
+        /// </summary>
+        public string ImageUrl { get; set; }
+
+        /// <summary>
         /// Наименование
         /// </summary>
         public string Name { get; set; }
