@@ -4,8 +4,10 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
     /// <summary>
     /// Счет пользователя
     /// </summary>
-    public class ScoreDao : EntityWithIdDao<int>
+    public class UserScoreDao : EntityDao
     {
+        public int UserId { get; set; }
+
         /// <summary>
         /// Пользователь
         /// </summary>

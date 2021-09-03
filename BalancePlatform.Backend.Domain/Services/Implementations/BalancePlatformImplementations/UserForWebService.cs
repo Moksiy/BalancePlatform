@@ -23,6 +23,8 @@ namespace BalancePlatform.Backend.Domain.Services.Implementations.BalancePlatfor
 
         private readonly IEntityWithIdRepository<UserDao, int> _userRepository;
 
+        private readonly IEntityRepository<UserScoreDao> _scoreRepository;
+
         private readonly IMapper _mapper;
 
         /// <summary>
@@ -36,6 +38,8 @@ namespace BalancePlatform.Backend.Domain.Services.Implementations.BalancePlatfor
 
             _userRepository = kernel.Get<IEntityWithIdRepository<UserDao, int>>(new ConstructorArgument("context", _balancePlatformContext));
 
+            _scoreRepository = kernel.Get<IEntityRepository<UserScoreDao>>(new ConstructorArgument("context", _balancePlatformContext));
+
             _mapper = kernel.Get<IMapper>();
         }
 
@@ -47,6 +51,34 @@ namespace BalancePlatform.Backend.Domain.Services.Implementations.BalancePlatfor
         {
             var userQueryable = _userRepository.GetQueryable().Where(x => x.IsActive).Where(x => x.RoleId == 3);
             return _mapper.ProjectTo<UserForWeb>(userQueryable);
+        }
+
+        /// <summary>
+        /// Получить список пользователей с из позицией в топе
+        /// </summary>
+        /// <returns></returns>
+        public List<UserInfo> GetUserList()
+        {
+            var userQueryable = _userRepository.GetQueryable()
+                .ToList();
+
+            var scoreQueryable = _scoreRepository.GetQueryable()
+                .OrderByDescending(x => x.Score)
+                .ToList();
+
+            var result = from score in scoreQueryable
+                         join user in userQueryable on score.UserId equals user.Id
+                         select new UserInfo()
+                         {
+                             Id = user.Id,
+                             Email = user.Email,
+                             ImgUrl = user.ImageUrl,
+                             Phone = user.PhoneNum,
+                             Title = user.UserName,
+                             PlaceOnTop = scoreQueryable.FindIndex(x => x.UserId == user.Id) + 1
+                         };
+
+            return result.ToList(); 
         }
     }
 }

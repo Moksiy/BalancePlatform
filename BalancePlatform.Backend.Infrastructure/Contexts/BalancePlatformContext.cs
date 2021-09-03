@@ -24,14 +24,22 @@ namespace BalancePlatform.Backend.Infrastructure.Contexts
             modelBuilder.Entity<UserDao>().ToTable("Users", "dbo");
             modelBuilder.Entity<UserTokenDao>().ToTable("UserTokens", "dbo");
             modelBuilder.Entity<ProductDao>().ToTable("Products", "dbo");
+            modelBuilder.Entity<UserScoreDao>().ToTable("UserScores", "dbo");
 
             modelBuilder.Entity<RoleDao>()
                 .Property(p => p.Id)
                 .ValueGeneratedOnAdd();
 
+            modelBuilder.Entity<UserScoreDao>()
+                .HasKey(p => p.UserId);
+
             modelBuilder.Entity<ProductDao>()
                .Property(p => p.Id)
                .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<UserScoreDao>()
+                .HasOne(p => p.User)
+                .WithOne();
 
             modelBuilder.Entity<RoleDao>()
                 .Property(p => p.Id)

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BalancePlatform.Backend.Common.Base.Extensions;
 using BalancePlatform.Backend.Domain.Entities.Users;
 using BalancePlatform.Backend.Domain.Ninject;
 using BalancePlatform.Backend.Domain.Services.Interfaces.BalancePlatformInterfaces;
@@ -59,12 +60,33 @@ namespace BalancePlatform.Backend.WebApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Создать пользователя
+        /// </summary>
+        /// <param name="user"></param>
         [HttpPost]
         [AllowAnonymous]
         [Route("CreateUser")]
         public void Post(NewUser user)
         {
             _userService.Create(user);
+        }
+
+        /// <summary>
+        /// Получаем список пользователей
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("List")]
+        public List<UserInfo> GetUsersList()
+        {
+            try
+            {
+                return _userForWebService.GetUserList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
