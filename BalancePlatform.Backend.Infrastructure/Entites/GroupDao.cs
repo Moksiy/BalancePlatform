@@ -7,12 +7,20 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         /// <summary>
         /// Название
         /// </summary>
-        [MaxLength(256)]
         public string Name { get; set; }
         /// <summary>
         /// Описание
         /// </summary>
-        [MaxLength(256)]
         public string Description { get; set; }
+
+        /// <summary>
+        /// Счет группы
+        /// </summary>
+        public int GroupScore { get; set; }
+
+        /// <summary>
+        /// Ид одмена
+        /// </summary>
+        public int AdminId { get; set; }
     }
 }
