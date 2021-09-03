@@ -27,12 +27,7 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         /// Группа победитель
         /// </summary>
         public GroupDao WinnerGroup { get; set; }
-
-        /// <summary>
-        /// Ссылка на фото
-        /// </summary>
-        public string ImageUrl { get; set; }
-
+        
         /// <summary>
         /// Битва активна?
         /// </summary>
