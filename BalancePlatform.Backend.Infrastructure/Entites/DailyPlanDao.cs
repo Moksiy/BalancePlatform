@@ -1,14 +1,15 @@
-﻿using System;
+﻿
+using System;
 
 namespace BalancePlatform.Backend.Infrastructure.Entites
 {
     /// <summary>
-    /// Заказ
+    /// Минимальный план по очкам на день
     /// </summary>
-    public class OrderDao : EntityWithIdDao<int>
+    public class DailyPlanDao : EntityWithIdDao<int>
     {
         /// <summary>
-        /// Ид юзера
+        /// ID Пользователя
         /// </summary>
         public int UserId { get; set; }
 
@@ -18,18 +19,13 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         public UserDao User { get; set; }
 
         /// <summary>
-        /// Ид товара
+        /// Минимум очков, которые необходимо набрать за день
         /// </summary>
-        public int ProductId { get; set; }
+        public int MinScore { get; set; }
 
         /// <summary>
-        /// Товар
+        /// Дата плана
         /// </summary>
-        public ProductDao Product { get; set; }
-
-        /// <summary>
-        /// Дата и время покупки
-        /// </summary>
-        public DateTime DateTime { get; set; }
+        public DateTime Date { get; set; }
     }
 }

@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-
+﻿
 namespace BalancePlatform.Backend.Infrastructure.Entites
 {
+    /// <summary>
+    /// Группа
+    /// </summary>
     public class GroupDao : EntityWithIdDao<int>
     {
         /// <summary>
@@ -22,5 +24,10 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         /// Ид одмена
         /// </summary>
         public int AdminId { get; set; }
+
+        /// <summary>
+        /// Админ
+        /// </summary>
+        public UserDao Admin { get; set; }
     }
 }

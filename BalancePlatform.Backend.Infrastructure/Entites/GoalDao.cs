@@ -1,14 +1,15 @@
-﻿using System;
+﻿
+using System;
 
 namespace BalancePlatform.Backend.Infrastructure.Entites
 {
     /// <summary>
-    /// Заказ
+    /// Цель
     /// </summary>
-    public class OrderDao : EntityWithIdDao<int>
+    public class GoalDao :EntityWithIdDao<int>
     {
         /// <summary>
-        /// Ид юзера
+        /// ID Пользователя
         /// </summary>
         public int UserId { get; set; }
 
@@ -18,18 +19,13 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         public UserDao User { get; set; }
 
         /// <summary>
-        /// Ид товара
+        /// Активен?
         /// </summary>
-        public int ProductId { get; set; }
+        public bool IsActive { get; set; }
 
         /// <summary>
-        /// Товар
+        /// Дата дедлайна цели
         /// </summary>
-        public ProductDao Product { get; set; }
-
-        /// <summary>
-        /// Дата и время покупки
-        /// </summary>
-        public DateTime DateTime { get; set; }
+        public DateTime DateDeadline { get; set; }
     }
 }

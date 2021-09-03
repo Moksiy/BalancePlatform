@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace BalancePlatform.Backend.Infrastructure.Entites
 {
     /// <summary>
@@ -15,6 +10,11 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         /// Ид пользователя
         /// </summary>
         public int UserId { get; set; }
+
+        /// <summary>
+        /// Пользователь
+        /// </summary>
+        public UserDao User { get; set; }
 
         /// <summary>
         /// Значение 

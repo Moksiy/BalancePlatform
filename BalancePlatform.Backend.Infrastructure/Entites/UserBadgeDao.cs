@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace BalancePlatform.Backend.Infrastructure.Entites
 {
     /// <summary>
     /// Бейджи пользователя
     /// </summary>
-    public class UserBadges : EntityWithIdDao<int>
+    public class UserBadgeDao : EntityWithIdDao<int>
     {
         /// <summary>
         /// Ид юзера
@@ -17,8 +12,19 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         public int UserId { get; set; }
 
         /// <summary>
+        /// Польлователь
+        /// </summary>
+        public UserDao User { get; set; }
+        
+        /// <summary>
         /// Ид бейджа
         /// </summary>
         public int BadgeId { get; set; }
+
+        /// <summary>
+        /// Бейдж
+        /// </summary>
+        public BadgeDao Badge { get; set; }
+
     }
 }

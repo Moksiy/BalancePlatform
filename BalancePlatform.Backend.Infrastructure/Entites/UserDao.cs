@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace BalancePlatform.Backend.Infrastructure.Entites
 {
@@ -49,5 +47,25 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
         /// Активен?
         /// </summary>
         public bool IsActive { get; set; }
+
+        /// <summary>
+        /// Город
+        /// </summary>
+        public string City { get; set; }
+
+        /// <summary>
+        /// Дата рождения
+        /// </summary>
+        public DateTime BirthDate { get; set; }
+
+        /// <summary>
+        /// Телефон
+        /// </summary>
+        public string PhoneNum { get; set; }
+
+        /// <summary>
+        /// Картинка
+        /// </summary>
+        public string ImageUrl { get; set; }
     }
 }
