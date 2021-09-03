@@ -18,5 +18,11 @@ namespace BalancePlatform.Backend.Domain.Services.Interfaces.BalancePlatformInte
         /// </summary>
         /// <returns>Интерфейс для запроса пользователей для веб интерфейса</returns>
         IQueryable<UserForWeb> GetQueryable();
+
+        /// <summary>
+        /// Получить список пользователей с из позицией в топе
+        /// </summary>
+        /// <returns></returns>
+        List<UserInfo> GetUserList();
     }
 }
