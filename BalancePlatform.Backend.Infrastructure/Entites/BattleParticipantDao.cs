@@ -4,12 +4,17 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
     /// <summary>
     /// Участники вызова
     /// </summary>
-    public class BattleParticipantDao : EntityWithIdDao<int>
+    public class BattleParticipantDao : EntityDao
     {
+        /// <summary>
+        /// ID вызова
+        /// </summary>
+        public int BattleId { get; set; }
+
         /// <summary>
         /// Вызов
         /// </summary>
-        public BadgeDao Badge { get; set; }
+        public BattleDao Battle { get; set; }
         
         /// <summary>
         /// Группа 1 (атакует)

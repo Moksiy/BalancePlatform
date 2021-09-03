@@ -6,7 +6,7 @@ namespace BalancePlatform.Backend.Infrastructure.Entites
     /// <summary>
     /// Заявка на вызов
     /// </summary>
-    public class ButtleRequestDao : EntityWithIdDao<int>
+    public class BattleRequestDao : EntityWithIdDao<int>
     {
         /// <summary>
         /// Группа 1 (атакует)
