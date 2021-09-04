@@ -127,11 +127,11 @@ namespace BalancePlatform.Backend.WebApi.Controllers
         }
 
         [HttpGet("UserBadges")]
-        public List<Badge> GetUserBadges(int id)
+        public List<Badge> GetUserBadges(int userId)
         {
             try
             {
-                return _userForWebService.GetUserBadges(id);
+                return _userForWebService.GetUserBadges(userId);
             }
             catch (Exception ex)
             {
