@@ -120,7 +120,33 @@ namespace BalancePlatform.Backend.Domain.Services.Implementations.BalancePlatfor
                  PlaceOnTop = scoreQueryable.FindIndex(x => x.UserId == user.Id) + 1,
                  Currency = currency.FirstOrDefault(x => x.UserId == user.Id).Value,
                  SpentCurrency = spentCurrency.FirstOrDefault(x => x.UserId == user.Id).Value
-        };
+            };
+        }
+
+        /// <summary>
+        /// Получить рейтинг пользователей
+        /// </summary>
+        /// <returns></returns>
+        public List<UserRating> GetUserRatings()
+        {
+            var users = _userRepository.GetQueryable()
+                .ToList();
+
+            var userScores = _scoreRepository.GetQueryable()
+                .OrderByDescending(x => x.Score)
+                .ToList();
+
+            return users.Select(x => new UserRating()
+            {
+                Id = x.Id,
+                ImgUrl = x.ImageUrl,
+                Title = x.UserName,
+                Type = "user",
+                PlaceOnTop = userScores.FindIndex(p => p.UserId == x.Id) + 1,
+                Score = userScores.FirstOrDefault(p => p.UserId == x.Id).Score,
+                TotalScore = 50 
+            }).OrderBy(x => x.PlaceOnTop)
+            .ToList();
         }
     }
 }

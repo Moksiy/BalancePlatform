@@ -106,5 +106,23 @@ namespace BalancePlatform.Backend.WebApi.Controllers
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Получить профиль пользователя
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("Rating")]
+        public List<UserRating> GetUserRating()
+        {
+            try
+            {
+                return _userForWebService.GetUserRatings();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
