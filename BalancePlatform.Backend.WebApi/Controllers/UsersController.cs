@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BalancePlatform.Backend.Common.Base.Extensions;
+using BalancePlatform.Backend.Domain.Entities.Branches;
 using BalancePlatform.Backend.Domain.Entities.Users;
 using BalancePlatform.Backend.Domain.Ninject;
 using BalancePlatform.Backend.Domain.Services.Interfaces.BalancePlatformInterfaces;
@@ -118,6 +119,19 @@ namespace BalancePlatform.Backend.WebApi.Controllers
             try
             {
                 return _userForWebService.GetUserRatings();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        [HttpGet("UserBadges")]
+        public List<Badge> GetUserBadges(int id)
+        {
+            try
+            {
+                return _userForWebService.GetUserBadges(id);
             }
             catch (Exception ex)
             {
